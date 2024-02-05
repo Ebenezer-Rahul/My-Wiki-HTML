@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>custom allocators</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div id="Need For Custom Allocators"><h2 id="Need For Custom Allocators" class="header"><a href="#Need For Custom Allocators">Need For Custom Allocators</a></h2></div>
+
+<ol>
+<li>
+avoid fragmentation
+
+<li>
+1 =&gt; better use of memory
+
+<li>
+Avoid book keeping 
+
+<li>
+make better deallocations
+
+<li>
+make allocated memory volatile for multi threaded application
+
+</ol>
+<div id="Need For Custom Allocators-Avoid Fragmentation"><h3 id="Avoid Fragmentation" class="header"><a href="#Need For Custom Allocators-Avoid Fragmentation">Avoid Fragmentation</a></h3></div>
+
+<p>
+say we use new for all allocations, say 
+we allocate a vector&lt;int&gt; of size n
+then we allocate a set and instert some elements
+then allocate a map then insert some more elements
+then insert some more set elements and map elements .
+and say set goes out of scope then now our memory looks very fragmented.
+</p>
+
+<p>
+so we can use a pool allocater 
+which is an allocater for objects of fixed size 
+this would greatly reduce fragmentation
+</p>
+
+<div id="Need For Custom Allocators-Better Use of Memory"><h3 id="Better Use of Memory" class="header"><a href="#Need For Custom Allocators-Better Use of Memory">Better Use of Memory</a></h3></div>
+
+<p>
+Less fragmentation =&gt; better use of memory
+</p>
+
+<div id="Need For Custom Allocators-Avoid book Keeping"><h3 id="Avoid book Keeping" class="header"><a href="#Need For Custom Allocators-Avoid book Keeping">Avoid book Keeping</a></h3></div>
+
+<p>
+say when we are deallocating an object we don't specify its size 
+so the allocater is storing this on heap for most part
+</p>
+
+<p>
+_not totally sure as it may be something we could figure out at compile time or may be use _<em>vptr to find out at runtime but not totally sure on this one but mostly true for array's but that won't be solved using a pool allocater</em>
+</p>
+
+<div id="Need For Custom Allocators-Make better deallocations"><h3 id="Make better deallocations" class="header"><a href="#Need For Custom Allocators-Make better deallocations">Make better deallocations</a></h3></div>
+
+<p>
+say we know we have set&lt;unique_ptr&lt;A*&gt;&gt; that goes out of scope. it calls deallocate for every ptr.. we can just note that and deallocate all of them at once when its done
+</p>
+
+<div id="Need For Custom Allocators-Making them Voloatile"><h3 id="Making them Voloatile" class="header"><a href="#Need For Custom Allocators-Making them Voloatile">Making them Voloatile</a></h3></div>
+<p>
+making sure that these are volatile.. i guess don't know enough
+</p>
+
+<div id="Need For Custom Allocators-Links"><h3 id="Links" class="header"><a href="#Need For Custom Allocators-Links">Links</a></h3></div>
+
+<p>
+<a href="https://drdobbs.com/cpp/improving-performance-with-custom-pool-a/184406243">https://drdobbs.com/cpp/improving-performance-with-custom-pool-a/184406243</a>
+</p>
+
+<p>
+An Estimate of the Store Size Necessary for ␍
+Dynamic Storage Allocation 
+</p>
+
+<p>
+<a href="https://dl.acm.org/doi/pdf/10.1145/321650.321658">https://dl.acm.org/doi/pdf/10.1145/321650.321658</a> <span id="Need For Custom Allocators-Links-didn't read yet"></span><strong id="didn't read yet">didn't read yet</strong>
+</p>
+
+<p>
+<a href="https://stackoverflow.com/questions/826569/compelling-examples-of-custom-c-allocators">https://stackoverflow.com/questions/826569/compelling-examples-of-custom-c-allocators</a> <span id="Need For Custom Allocators-Links-didn't read yet"></span><strong id="didn't read yet">didn't read yet</strong>
+</p>
+
+<p>
+<a href="some allocators.html">some allocators</a>
+</p>
+
+</body>
+</html>

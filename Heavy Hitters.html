@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Heavy Hitters</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+
+<div id="problem"><h1 id="problem" class="header"><a href="#problem">problem</a></h1></div>
+
+<p>
+Find elements with a freqency of 1/k in an array or stream
+without having to maintain a map of size o(n)
+</p>
+
+<p>
+do it in o(k) 
+</p>
+
+<div id="problem-idea"><h2 id="idea" class="header"><a href="#problem-idea">idea</a></h2></div>
+
+<p>
+Same idea as that of majority element but instead of having a single element and a single count
+variable 
+</p>
+
+<p>
+whenever an element comes which is one of the k elements incr the corressponding element
+and whenever none comes just decrement all of them when one of them gets to &lt; 0 replace it with the new element
+</p>
+
+
+<p>
+// still doubts on how to verify ??
+</p>
+
+</body>
+</html>

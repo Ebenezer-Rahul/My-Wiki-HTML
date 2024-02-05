@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div id="Types"><h1 id="Types" class="header"><a href="#Types">Types</a></h1></div>
+
+<p>
+My Understanding of types was intially based on structs from c. 
+</p>
+
+<p>
+Formalizing my understanding it's like 
+</p>
+<ul>
+<li>
+<span id="Types-type is a set of values"></span><strong id="type is a set of values">type is a set of values</strong>
+
+<li>
+Example <em>a set of all integers from -pow(2, 31) to pow(2, 31) - 1. -&gt; int</em>
+
+<li>
+<em>set of true, false -&gt; boolen type</em>
+
+<li>
+<em>{x* | x belongs to chars union epsilon } -&gt; string</em>
+
+</ul>
+<p>
+This way of thinking about types I think works in functional paradiams. 
+Thinking of types this way helps in thinking about compostion of function etc..
+</p>
+
+<p>
+<span id="Types-But Object Oriented Languages require you to think of type in a different way"></span><strong id="But Object Oriented Languages require you to think of type in a different way">But Object Oriented Languages require you to think of type in a different way</strong>
+</p>
+
+<p>
+Here Type is thought of as set operations|requests|methods 
+</p>
+
+<p>
+we say an object is of type T if the object supports all the operations in T
+</p>
+
+<p>
+So a single object can be many types T1, T2 etc..
+</p>
+
+<p>
+I do think this way of understaning types helps to write more naturally in object oriented languages
+</p>
+
+<p>
+I think go defines types this way.
+</p>
+
+<p>
+But in c++ this way of thinking won't always work. due to fact of object slicing etc.. but we just limit
+to thinking of types this way for purly abstract classes {I mean like an interface in Java} in c++ . 
+This way of reasong about code certainly helps designing good applications
+</p>
+
+</body>
+</html>

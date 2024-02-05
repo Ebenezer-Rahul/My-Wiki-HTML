@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Reserviour Sampling</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+
+<div id="problem"><h1 id="problem" class="header"><a href="#problem">problem</a></h1></div>
+
+<p>
+Sample k elements from a stream of unknown elements 
+such that each element in stream has a equall probability of
+getting picked
+</p>
+
+<div id="problem-idea"><h2 id="idea" class="header"><a href="#problem-idea">idea</a></h2></div>
+
+<p>
+think about when we are processing the n-th element in the stream
+</p>
+
+<p>
+pick this n-th elemenet with a probablity of k/n. and replace the any of the k current samples with this
+instead
+</p>
+
+<p>
+we can prove that this works { i.e sample uniformly } with induction.
+</p>
+
+<p>
+informally assume that after seeing n-1 elements in stream an element. probablity of it being in stream is k/n-1
+now after processing the k-th element. the probablity of it being a sample is 
+=&gt;(k/(n-1)) * ((k-1)/k) * (k/n) + ((n-k)/n)*(k/(n-1)) 
+=&gt; (k/n-1) * (((k -1) / n) + 1 -k/n) 
+=&gt; (k/(n-1)) * ((n-1) / n)
+=&gt; k/n
+*
+There's an implemtation trick by not generating random number twice 
+for each element in stream i.e
+int r = randInd();
+</p>
+
+<p>
+if r % n &lt; k 
+	pick and replace 
+	r%n th element from current sample
+</p>
+
+</body>
+</html>
