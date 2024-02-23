@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<title>Performance Engineering</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+
+<div id="Caching"><h2 id="Caching" class="header"><a href="#Caching">Caching</a></h2></div>
+
+<p>
+implement a cache in functions or a better one is to implement a memorize 
+template Function
+</p>
+
+
+<div id="Efficient DataEncoding"><h2 id="Efficient DataEncoding" class="header"><a href="#Efficient DataEncoding">Efficient DataEncoding</a></h2></div>
+
+<p>
+Example :
+	for-say date 
+</p>
+<pre C>
+		struct Date {
+			int year 13;
+			int month 4;
+			int day 5;
+		}
+		//better in terms of both efficiency and compuatutaion
+
+</pre>
+
+<div id="Sparsity"><h2 id="Sparsity" class="header"><a href="#Sparsity">Sparsity</a></h2></div>
+
+<p>
+Reprasenting sparse data 
+</p>
+
+<ul>
+<li>
+Matrices
+
+<ol>
+<li>
+Representing in form of row, columns, vals //Will explain the details later
+
+<li>
+at index i in the rows array we store the index of colums array which corresponds to this row
+
+<li>
+then in the columns array we store all the columns numbers of non zero elements
+
+<li>
+in the correspong vals array we store the actual value
+
+<li>
+drastically less work if the matrix is sparse when multiplying or transforming
+	<em>store vals and columns array in the same array improves cache locality</em>
+
+</ol>
+</ul>
+	
+
+<p>
+	<span id="Sparsity-Note Need to write it better, its simple"></span><strong id="Note Need to write it better, its simple">Note Need to write it better, its simple</strong>
+</p>
+<ul>
+<li>
+Graphs
+
+<ol>
+<li>
+Store Offsets array and Edges array
+
+<li>
+In the offsets array store the indices corresponding to Edges array corresponding to the current vertex
+
+</ol>
+<li>
+Partial Loop Unrolling
+
+<li>
+Sentinals
+
+<ol>
+<li>
+Adding Dummy Nodes/Data which make checking boundries easy.
+
+</ol>
+</ul>
+
+</body>
+</html>
